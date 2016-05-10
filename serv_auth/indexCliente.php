@@ -1,5 +1,5 @@
 <?php
-	include("sessionCliente.php");
+	include("auth/sessionCliente.php");
 ?>
 
 <html>
