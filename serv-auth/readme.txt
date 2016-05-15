@@ -1,0 +1,2 @@
+- alterar o arquivo mysql/mysql.php para colocar suas credenciais do MySQL
+- o arquivo mysql/bd.sql contém o script de criação dos usuários
