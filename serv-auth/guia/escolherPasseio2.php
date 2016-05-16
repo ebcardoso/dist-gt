@@ -3,14 +3,14 @@
 
 	<body>
 		
-	<h1> Escolha um Passeio </h1>
+	<h1> Escolha um Guia </h1>
 
 		<?php
 			include('lib/nusoap.php');	
 			$cliente = new nusoap_client('http://localhost/guia/servidor.php?wsdl');	
-			$id = $_GET['cidade'];
-			$parametros = array('id_cidade'=>$id);		
-			$resultado = $cliente->call('getPasseiosCidade', $parametros);
+			$id = $_GET['guia'];
+			$parametros = array('id_guia'=>$id);		
+			$resultado = $cliente->call('getPasseiosGuia', $parametros);
 		?>
 
 		<table border='1'>

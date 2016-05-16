@@ -7,10 +7,23 @@ create table cidade (
 	nome varchar(30)
 );
 
+create table guia (
+	id_guia int primary key auto_increment,
+	nome varchar (30) not null,
+	email varchar (50) not null,
+	cidade varchar (30) not null
+);
+
 create table passeio (
 	id_cidade int not null,
+	id_guia int not null,
 	id_passeio int primary key auto_increment,
-	nome varchar(30)
+	nome varchar(30),
+	vigenciaInicio date,
+	vigenciaFinal date,
+	horaInicial time,
+	horaFinal time,
+	preco float
 );
 
 create table ponto (
@@ -23,8 +36,19 @@ create table ponto_passeio (
 	id_passeio int not null
 );
 
+insert into guia (nome, cidade, email) values ("Carlos Maia", "Natal", "carlos@maia.com");
+insert into guia (nome, cidade, email) values ("Maria Luiza", "Natal", "maria@luiza.com");
+insert into guia (nome, cidade, email) values ("Marco Rossi", "Rio de Janeiro", "marco@rossi.com");
+insert into guia (nome, cidade, email) values ("Lucas Alves", "Rio de Janeiro", "lucas@alves.com");
+insert into guia (nome, cidade, email) values ("John Snow", "Miami", "john@snow.com");
+insert into guia (nome, cidade, email) values ("Mary Jane", "Miami", "mary@jane.com");
+insert into guia (nome, cidade, email) values ("Frank Underwood", "Nova York", "frank@underwood.com");
+insert into guia (nome, cidade, email) values ("Mac Taylor", "Nova York", "mac@taylor.com");
+insert into guia (nome, cidade, email) values ("Matthieu Vermond", "Paris", "matthieu@vermond.com");
+insert into guia (nome, cidade, email) values ("Samir Nasri", "Paris", "samir@nasri.com");
+
 insert into cidade (nome) values ('Natal');
-	insert into passeio (id_cidade, nome) values (1, 'Praias de Natal');
+	insert into passeio (id_guia, id_cidade, nome, preco, vigenciaInicio, vigenciaFinal, horaInicial, horaFinal) values (1, 1, 'Praias de Natal', 500, "2016-06-01", "2016-06-30", '14:00:00', '18:00:00');
 		insert into ponto (nome) values ('Fortaleza dos Reis Magos');
 		insert into ponto (nome) values ('Praia do Forte');
 		insert into ponto (nome) values ('Praia do Meio');
@@ -38,22 +62,28 @@ insert into cidade (nome) values ('Natal');
 			insert into ponto_passeio (id_passeio, id_ponto) values (1, 5);
 			insert into ponto_passeio (id_passeio, id_ponto) values (1, 6);
 
-insert into cidade (nome) values ('Rio de Janeiro');
-	insert into passeio (id_cidade, nome) values (2, 'Tuor pelo Rio');
-		insert into ponto (nome) values ('Praia de Copacabana');
-		insert into ponto (nome) values ('Maracanã');
-		insert into ponto (nome) values ('Cristo Redentor');
-		insert into ponto (nome) values ('Morro do Alemão');
+	insert into passeio (id_guia, id_cidade, nome, preco, vigenciaInicio, vigenciaFinal, horaInicial, horaFinal) values (2, 1, 'Shoppings de Natal', 250, "2016-05-31", "2016-07-15", "19:00:00", "23:00:00");
+		insert into ponto (nome) values ('Fortaleza dos Reis Magos');
+		insert into ponto (nome) values ('Norte Shopping');
+		insert into ponto (nome) values ('Midway Mall');
+		insert into ponto (nome) values ('Portugal Center');
+		insert into ponto (nome) values ('Praia Shopping');
 			insert into ponto_passeio (id_passeio, id_ponto) values (2, 7);
 			insert into ponto_passeio (id_passeio, id_ponto) values (2, 8);
 			insert into ponto_passeio (id_passeio, id_ponto) values (2, 9);
 			insert into ponto_passeio (id_passeio, id_ponto) values (2, 10);
 
-insert into cidade (nome) values ('Berlim');
-insert into cidade (nome) values ('Gramado');
+insert into cidade (nome) values ('Rio de Janeiro');
+	insert into passeio (id_guia, id_cidade, nome, preco, vigenciaInicio, vigenciaFinal, horaInicial, horaFinal) values (3, 2, 'Tuor pelo Rio', 300, "2016-06-01", "2016-06-30", "08:00:00", "14:00:00");
+		insert into ponto (nome) values ('Praia de Copacabana');
+		insert into ponto (nome) values ('Maracanã');
+		insert into ponto (nome) values ('Cristo Redentor');
+		insert into ponto (nome) values ('Morro do Alemão');
+			insert into ponto_passeio (id_passeio, id_ponto) values (3, 11);
+			insert into ponto_passeio (id_passeio, id_ponto) values (3, 12);
+			insert into ponto_passeio (id_passeio, id_ponto) values (3, 13);
+			insert into ponto_passeio (id_passeio, id_ponto) values (3, 14);
+
 insert into cidade (nome) values ('Miami');
 insert into cidade (nome) values ('Nova York');
 insert into cidade (nome) values ('Paris');
-insert into cidade (nome) values ('Roma');
-insert into cidade (nome) values ('São Paulo');
-insert into cidade (nome) values ('Tokyo');

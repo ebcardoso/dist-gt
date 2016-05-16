@@ -3,29 +3,10 @@
 
 	<body>
 		
-	<p> Selecione a Cidade </p>
+	<p> <a href="cidades.php"> Buscar por Cidade </a> </p>
+	<p> <a href="guias.php"> Buscar por Guia </a> </p>
+	<p> Buscar por Datas </p>
 
-<?php
-	include('lib/nusoap.php');	
-	$cliente = new nusoap_client('http://localhost/guia/servidor.php?wsdl');	
-	$parametros = array('a'=>'Breno');		
-	$resultado = $cliente->call('getCities', $parametros);
-?>
-
-	<table border='1'>
-		<tr>
-			<th> Nome do Estádio </th>
-			<th> Ações </th>
-		</tr>
-
-<?php
-	for($i=0; $i<count($resultado); $i++) {
-    	echo "<tr>";
-    		echo "<td>".$resultado[$i]['nome'].'</td>';
-    		echo '<td> <center> <a href=\'escolherPasseio.php?cidade='.$resultado[$i]['id_cidade'].'\'> Ir </a> </center> </td>';
-    	echo "</tr>";
-	}
-?>
 
 	</table>	
 	</body>
