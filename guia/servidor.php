@@ -48,6 +48,13 @@
 		array('retorno'=>'xsd:Array')
 	);
 
+	//retorna os passeios até aquela data
+	$servidor->register(
+		'getPasseiosData',
+		array('$data'=>'xsd:string'),
+		array('retorno'=>'xsd:Array')
+	);
+
 	//retornar o nome do guia de um passeio
 	$servidor->register(
 		'getGuiaDoPasseio',
@@ -67,6 +74,12 @@
 		'getAllGuias',
 		array('i'=>'xsd:string'),
 		array('retorno'=>'xsd:Array')
+	);
+
+	//registrar compra
+	$servidor->register(
+		'registrarCompra',
+		array('id_passeio'=>'xsd:int', 'username'=>'xsd:string')
 	);
 	
 	$HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';

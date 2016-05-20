@@ -67,6 +67,18 @@
 		return($rows);
 	}
 
+	//retorna passeios em uma certa daata
+	function getPasseiosData($data){
+		$sql = mysql_query("SELECT * FROM passeio WHERE vigenciaFinal >= now() AND vigenciaFinal <= '$data'") or die (mysql_error());
+
+		$rows = Array();
+		while($row = mysql_fetch_array($sql)){
+			array_push($rows, $row);
+		}
+
+		return($rows);
+	}
+
 	//retorna os dados do guia responsável pelo passeio
 	function getGuiaDoPasseio($id_passeio) {
 		$query = "SELECT gui.nome AS nome_guia FROM guia gui, passeio pa WHERE pa.id_guia = gui.id_guia AND pa.id_passeio = '$id_passeio' ";
@@ -97,5 +109,10 @@
 		}
 
 		return($rows);
+	}
+
+	function registrarCompra($id_passeio, $username) {
+		$consulta = "INSERT INTO compra (id_passeio, username) values ('$id_passeio', '$username')";
+		$exec = mysql_query($consulta) or die (mysql_error());
 	}
 ?>

@@ -2,13 +2,13 @@
 	<head> <title> Comprar Guia </title> </head>
 
 	<body>		
-		<h1> Escolha um Passeio </h1>
+		<h1> Resultado da Busca </h1>
 		<?php
 			include('lib/nusoap.php');	
 			$cliente = new nusoap_client('http://localhost/guia/servidor.php?wsdl');	
-			$id = $_GET['guia'];
-			$parametros = array('id_guia'=>$id);		
-			$resultado = $cliente->call('getPasseiosGuia', $parametros);
+			$date = $_POST['date'];
+			$parametros = array('data'=>$date);		
+			$resultado = $cliente->call('getPasseiosData', $parametros);
 		?>
 
 		<table border='1'>
