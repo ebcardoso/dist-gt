@@ -3,8 +3,8 @@
 	<body>
 		<h1> Compra Efetuada Com Sucesso </h1>
 		<?php
-			include('lib/nusoap.php');	
-			$cliente = new nusoap_client('http://localhost/guia/servidor.php?wsdl');
+			include('../../nusoap_lib/nusoap.php');	
+			$cliente = new nusoap_client('http://localhost/dist-gt/guia/servidor.php?wsdl');
 
 			//dados pra passar	
 			$id = $_GET['passeio'];

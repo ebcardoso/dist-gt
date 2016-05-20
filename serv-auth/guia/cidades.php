@@ -6,8 +6,8 @@
 	<h1> Selecione uma Cidade </h1>
 
 <?php
-	include('lib/nusoap.php');	
-	$cliente = new nusoap_client('http://localhost/guia/servidor.php?wsdl');	
+	include('../../nusoap_lib/nusoap.php');	
+	$cliente = new nusoap_client('http://localhost/dist-gt/guia/servidor.php?wsdl');	
 	$parametros = array('a'=>'Breno');		
 	$resultado = $cliente->call('getCities', $parametros);
 ?>

@@ -6,8 +6,8 @@
 	<h1> Escolha um Passeio </h1>
 
 		<?php
-			include('lib/nusoap.php');	
-			$cliente = new nusoap_client('http://localhost/guia/servidor.php?wsdl');	
+			include('../../nusoap_lib/nusoap.php');	
+			$cliente = new nusoap_client('http://localhost/dist-gt/guia/servidor.php?wsdl');	
 			$id = $_GET['cidade'];
 			$parametros = array('id_cidade'=>$id);		
 			$resultado = $cliente->call('getPasseiosCidade', $parametros);

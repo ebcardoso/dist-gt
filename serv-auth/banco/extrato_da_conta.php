@@ -5,8 +5,8 @@
 	<h1> Extrato da Conta </h1>
 
 	<?php
-		include('lib/nusoap.php');	
-		$cliente = new nusoap_client('http://localhost/banco/servidor.php?wsdl');	
+		include('../../nusoap_lib/nusoap.php');	
+		$cliente = new nusoap_client('http://localhost/dist-gt/banco/servidor.php?wsdl');	
 		
 		session_start();
 		$user_titular = $_SESSION['username'];

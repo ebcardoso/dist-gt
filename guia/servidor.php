@@ -1,5 +1,5 @@
 <?php
-	include('lib/nusoap.php');
+	include('../nusoap_lib/nusoap.php');
 	include('func/functions.php');
 	
 	$servidor = new nusoap_server();	

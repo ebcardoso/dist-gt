@@ -4,8 +4,8 @@
 <body>
 
 <?php
-	include('lib/nusoap.php');	
-	$cliente = new nusoap_client('http://localhost/banco/servidor.php?wsdl');
+	include('../../nusoap_lib/nusoap.php');	
+	$cliente = new nusoap_client('http://localhost/dist-gt/banco/servidor.php?wsdl');
 	$username = $_GET['conta'];
 	$parametros = array('user_titular'=>$username);
 	$res = $cliente->call('cancelar_conta', $parametros);

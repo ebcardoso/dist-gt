@@ -6,8 +6,8 @@
 	<body>
 		
 <?php		
-	include('lib/nusoap.php');	
-	$cliente = new nusoap_client('http://localhost/banco/servidor.php?wsdl');
+	include('../../nusoap_lib/nusoap.php');	
+	$cliente = new nusoap_client('http://localhost/dist-gt/banco/servidor.php?wsdl');
 
 	session_start();
 	$username = $_SESSION['username'];
