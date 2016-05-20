@@ -59,6 +59,12 @@ create table ponto_passeio (
 	id_passeio int not null
 );
 
+create table compra (
+	id_compra int primary key auto_increment,
+	id_passeio int not null,
+	username varchar(30)
+);
+
 insert into guia (nome, cidade, email) values ("Carlos Maia", "Natal", "carlos@maia.com");
 insert into guia (nome, cidade, email) values ("Maria Luiza", "Natal", "maria@luiza.com");
 insert into guia (nome, cidade, email) values ("Marco Rossi", "Rio de Janeiro", "marco@rossi.com");

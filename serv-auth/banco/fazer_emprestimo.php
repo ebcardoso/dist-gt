@@ -8,5 +8,6 @@
 		<input type="text" name="valor"/>
 		<input type="submit" name="confirmar" value="Confirmar"/>
 	</form>
+	<a href="index.php"> Voltar </a>
 </body>
 </html>

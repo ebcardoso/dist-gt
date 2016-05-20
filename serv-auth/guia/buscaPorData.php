@@ -7,4 +7,5 @@
 			<input type="date" name="date"/>				
 			<input type="submit" name="buscar" value="Buscar"/>
 	</form>
+	<a href="index.php"> Voltar </a>
 </html>

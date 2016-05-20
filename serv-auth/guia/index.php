@@ -7,6 +7,7 @@
 		<p> <a href="cidades.php"> Buscar por Cidade </a> </p>
 		<p> <a href="guias.php"> Buscar por Guia </a> </p>
 		<p> <a href="buscaPorData.php"> Buscar por Data </a> </p>
-	</table>	
+	</table>
+	<br/> <a href="../indexCliente.php"> Voltar </a>
 	</body>
 </html>

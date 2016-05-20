@@ -6,7 +6,7 @@
 			include('../../nusoap_lib/nusoap.php');	
 			$cliente = new nusoap_client('http://localhost/dist-gt/guia/servidor.php?wsdl');
 
-			//dados pra passar	
+			//registrando no servidor do guia
 			$id = $_GET['passeio'];
 			session_start();
 			$username = $_SESSION['username'];
@@ -14,8 +14,8 @@
 
 			$cliente->call('registrarCompra', $parametros);
 
-			//------------
-			$cliente2 = new nusoap_client('http://localhost/banco/servidor.php?wsdl');
+			//registrando no servidor do banco
+			$cliente2 = new nusoap_client('http://localhost/dist-gt/banco/servidor.php?wsdl');
 			$valor = $_GET['valor'];
 			$parametros = array('user_titular'=>$username, 'valor'=>$valor, 'descricao'=>'Compra do Guia');		
 			$cliente2->call('fazer_pagamento', $parametros);
