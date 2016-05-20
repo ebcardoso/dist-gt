@@ -47,5 +47,7 @@
 
 		</table>
 
+		<p> <?php echo "<a href='comprar.php?passeio=".$id."&valor=".$resultado2[0]['preco']."'> Comprar </a>"; ?> </p>
+
 	</body>
 </html>

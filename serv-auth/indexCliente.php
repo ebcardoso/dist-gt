@@ -8,7 +8,9 @@
 	</head>
 
 	<body>
-		<a href='guia'>
+	<?php echo "Usuário: ".$_SESSION['username']."<br/>";?>
+
+		<a href='guia/index.php'>
 			<img src="icon/shopping.png"/>
 		</a>
 		<a href='crud_cliente/update.php'>
@@ -17,6 +19,7 @@
 		<a href='crud_cliente/delete.php'>
 			<img src="icon/cancel.png"/>
 		</a>
+		<a href='banco/index.php'> <img src="icon/banco.png"/> </a>
 		<a href='login/logout.php'>
 			<img src="icon/close.png"/>
 		</a>
