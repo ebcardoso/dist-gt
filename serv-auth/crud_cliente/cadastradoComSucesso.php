@@ -5,6 +5,6 @@
 
 	<body>
 		<p> Cadastrado com Sucesso </p>
-		<p> <a href="../indexCliente.php"> Index </a> </p>
+		<p> <a href="../index.php"> Index </a> </p>
 	</body>
 </html>

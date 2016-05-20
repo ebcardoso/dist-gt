@@ -6,11 +6,11 @@
 			
 	$sql = mysql_query("SELECT * FROM cliente WHERE username_cliente = '$login' and senha_cliente = '$senha'") or die(mysql_error());
 	$row = mysql_num_rows($sql);
-	$res = mysql_fetch_array($row);
+	$res = mysql_fetch_array($sql);
 			
 	if ($row > 0) {
 		session_start();
-		$_SESSION["nome"] = ["nome_cliente"];
+		$_SESSION["nome"] = $res["nome_cliente"];
 		$_SESSION["username"] = $_POST['username'];
 		$_SESSION["senha"] = $_POST['senha'];
 		echo "<center>você foi autenticado com sucesso....</center>";

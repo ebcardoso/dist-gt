@@ -1,7 +1,7 @@
 <html>
 	<head> <title> Confirmar Compra </title> </head>
 	<body>
-		<h1> Compra Efetuada Com Sucesso </h1>
+		<h2> <a href="../indexCliente.php"> Compra Efetuada Com Sucesso </a> </h2>
 		<?php
 			include('../../nusoap_lib/nusoap.php');	
 			$cliente = new nusoap_client('http://localhost/dist-gt/guia/servidor.php?wsdl');
