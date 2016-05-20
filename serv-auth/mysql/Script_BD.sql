@@ -5,7 +5,7 @@ use bd_auth;
 create table cliente (
 	id_produto int primary key auto_increment,
 	nome_cliente varchar(40) not null,
-	username_cliente varchar(40) not null,
+	username_cliente varchar(40) not null unique,
 	senha_cliente varchar(40) not null
 );
 
@@ -38,9 +38,9 @@ create table guia (
 );
 
 create table passeio (
+	id_passeio int primary key auto_increment,
 	id_cidade int not null,
 	id_guia int not null,
-	id_passeio int primary key auto_increment,
 	nome varchar(30),
 	vigenciaInicio date,
 	vigenciaFinal date,
@@ -48,6 +48,10 @@ create table passeio (
 	horaFinal time,
 	preco float
 );
+alter table passeio
+add constraint fk_passeio_cidade foreign key (id_cidade) references cidade (id_cidade) on update cascade on delete cascade;
+alter table passeio
+add constraint fk_passeio_guia foreign key (id_guia) references guia (id_guia) on update cascade on delete cascade;
 
 create table ponto (
 	id_ponto int primary key auto_increment,
@@ -58,12 +62,18 @@ create table ponto_passeio (
 	id_ponto int not null,
 	id_passeio int not null
 );
+alter table ponto_passeio
+add constraint fk_pp_ponto foreign key (id_ponto) references ponto (id_ponto) on update cascade on delete cascade;
+alter table passeio
+add constraint fk_pp_passeio foreign key (id_passeio) references passeio (id_passeio) on update cascade on delete cascade;
 
 create table compra (
 	id_compra int primary key auto_increment,
 	id_passeio int not null,
 	username varchar(30)
 );
+alter table compra
+add constraint fk_compra_passeio foreign key (id_passeio) references passeio (id_passeio) on update cascade on delete cascade;
 
 insert into guia (nome, cidade, email) values ("Carlos Maia", "Natal", "carlos@maia.com");
 insert into guia (nome, cidade, email) values ("Maria Luiza", "Natal", "maria@luiza.com");
@@ -136,19 +146,17 @@ create table movimentacao (
 	dia datetime,
 	valor float
 );
+alter table movimentacao
+add constraint fk_movimentacao foreign key (id_conta) references conta (id_conta) on update cascade on delete cascade;
 
 create table emprestimo (
 	id_emprestimo int not null primary key auto_increment,
-	id_conta int,
+	id_conta int not null,
 	dia datetime,
 	valor float
 );
-
 alter table emprestimo
 add constraint fk_emprestimo foreign key (id_conta) references conta (id_conta) on update cascade on delete cascade;
-
-alter table movimentacao
-add constraint fk_movimentacao foreign key (id_conta) references conta (id_conta) on update cascade on delete cascade;
 
 insert into conta (user_titular, saldo) values ('elisio.breno', 500);
 insert into movimentacao (id_conta, valor, descricao, dia) values (1, 300, 'Guia', now());

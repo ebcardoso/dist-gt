@@ -8,7 +8,11 @@
 	</head>
 
 	<body>
-	<?php echo "Usuário: ".$_SESSION['username']."<br/>";?>
+
+	<?php
+		echo "Nome: <b>".$_SESSION['nome']."</b> <br/>";
+		echo "Username: <b>".$_SESSION['username']."</b> <br/>";
+	?>
 
 		<a href='guia/index.php'>
 			<img src="icon/shopping.png"/>
